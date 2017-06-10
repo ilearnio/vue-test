@@ -1,0 +1,105 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font: $base-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: $base-color;
+  font-size: 87.5%; // 14px
+  line-height: 1.4;
+  background: $base-background;
+
+  padding: 20px 0;
+}
+
+body, input, select, textarea, button {
+  font-family: "Whitney SSm A", "Whitney SSm B";
+}
+
+a, img {
+  border: none;
+  outline: 0;
+}
+
+a {
+  color: $link-color;
+  cursor: pointer;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+  &:visible {
+    color: $link-color-visited;
+  }
+}
+
+h2 {
+  font-size: 23px;
+  font-weight: 500;
+  color: #474746;
+}
+
+textarea, input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="date"] {
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  border-radius: 4px;
+  text-shadow: none;
+  background-color: #fbfbfa;
+  border-color: #dadada;
+  border-style: solid;
+  border-width: 1px;
+  color: #474746;
+  font-size: 12px;
+  font-weight: 400;
+  height: 30px;
+  padding: 0 9px;
+  width: 100%;
+  outline: none;
+}
+
+// Helper classes
+
+.clear {
+  clear: both;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.show-for-medium {
+  display: none;
+  @include respond-to (small-screens) {
+    display: block;
+  }
+}
+
+// Containers
+
+.mid-wrapper {
+  width: 94%;
+  margin: 0 auto;
+  @include respond-to (wide-screens) {
+    width: 980px;
+  }
+}
+

@@ -1,0 +1,26 @@
+// Media query (for "mobile first" development)
+@mixin respond-to($media) {
+  @if $media == small-screens {
+    @media only screen and (min-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-medium) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
+
+// Retina
+@mixin retina($pixelRatio) {
+  @if $pixelRatio == '2x' {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+    only screen and (min-device-pixel-ratio: 1.25),
+    only screen and (min-resolution: 1.25dppx) { @content; }
+  }
+  @else if $pixelRatio == '3x' {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2.25),
+    only screen and (min-device-pixel-ratio: 2.25),
+    only screen and (min-resolution: 2.25dppx) { @content; }
+  }
+}

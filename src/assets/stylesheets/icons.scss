@@ -1,0 +1,72 @@
+[class*='icon-'] {
+  background: url(../images/app-sprite.png) no-repeat;
+  position: relative;
+  display: inline-block;
+
+  @include retina ('2x') {
+    background-image: url(../images/app-2x-sprite.png);
+    background-size: 350px 6525px;
+  }
+}
+
+.icon-location {
+  background-position: 0 -3548px;
+  width: 12px;
+  height: 15px;
+  margin-right: 2px;
+  top: 3px;
+
+  @include retina ('2x') {
+    background-position: 0 -2289px;
+  }
+}
+
+.icon-heart {
+  background-position: 0 -2080px;
+  width: 22px;
+  height: 19px;
+
+  @include retina ('2x') {
+    background-position: 0 -1350px;
+  }
+}
+
+.icon-star {
+  background-position: 0 -2492px;
+  width: 21px;
+  height: 21px;
+
+  @include retina ('2x') {
+    background-position: 0 -1612px;
+  }
+}
+
+.icon-share {
+  background-position: 0 -2283px;
+  width: 28px;
+  height: 17px;
+
+  @include retina ('2x') {
+    background-position: 0 -1478px;
+  }
+}
+
+.icon-x {
+  background-position: 0 -3340px;
+  width: 11px;
+  height: 11px;
+
+  @include retina ('2x') {
+    background-position: 0 -2156px;
+  }
+}
+
+.icon-bag {
+  background-position: 0 -3129px;
+  width: 17px;
+  height: 19px;
+
+  @include retina ('2x') {
+    background-position: 0 -2021px;
+  }
+}
