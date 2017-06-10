@@ -6,9 +6,14 @@
  * @returns {String}
  */
 export const truncate = (str, maxLen = 100, append = '...') => {
-  return str.split(' ').reduce((str, word) => {
+  if (!str) return ''
+
+  return String(str).split(' ').reduce((str, word) => {
     if (str.length + word.length >= maxLen) {
-      if (str.slice(-append.length) !== append) str += append
+      if (str.slice(-append.length) !== append) {
+        str = str.replace(/[^a-zA-Z0-9]+$/, '') // trim special chars
+        str += append
+      }
       return str
     }
 
@@ -38,7 +43,8 @@ export const htmlEntitiesEncode = (str) => {
  * @returns {String}
  */
 export const lineBreaksToHtml = (str) => {
-  str = str.split('\n\n').join('</p><p>')
+  if (!str) return ''
+  str = String(str).split('\n\n').join('</p><p>')
   str = str.split('\n').join('<br>')
   return '<p>' + str + '</p>'
 }
