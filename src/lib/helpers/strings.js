@@ -7,14 +7,14 @@
  */
 export const truncate = (str, maxLen = 100, append = '...') => {
   return str.split(' ').reduce((str, word) => {
-    if (str.length + word.length > maxLen) {
-      if (!str.endsWith(append)) str += append
+    if (str.length + word.length >= maxLen) {
+      if (str.slice(-append.length) !== append) str += append
       return str
     }
 
     str += ' ' + word
 
-    return str
+    return str.trim()
   }, '')
 }
 
@@ -28,6 +28,8 @@ export const htmlEntitiesEncode = (str) => {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
 }
 
 /**

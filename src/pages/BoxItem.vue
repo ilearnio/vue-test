@@ -130,13 +130,17 @@ export default {
     }
   },
 
-  mounted () {
+  async mounted () {
     const userId = parseInt(this.$route.params.userId)
     const itemId = parseInt(this.$route.params.itemId)
 
     // Fetch the data
-    this.fetchItem(userId, itemId)
-    this.fetchItemComments(userId, itemId)
+    await Promise.all([
+      this.fetchItem(userId, itemId),
+      this.fetchItemComments(userId, itemId)
+    ])
+
+    this.$emit('all-fetched')
   },
 
   methods: {
