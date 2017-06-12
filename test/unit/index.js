@@ -1,4 +1,10 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
+import VueResourceMock from 'vue-resource-mock'
+import MockData from './mocks/resource'
+
+Vue.use(VueResource)
+Vue.use(VueResourceMock, MockData)
 
 Vue.config.productionTip = false
 

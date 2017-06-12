@@ -1,11 +1,5 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource'
-import VueResourceMock from 'vue-resource-mock'
-import MockData from '../../mocks/resource'
 import BoxItem from '@/components/BoxItem'
-
-Vue.use(VueResource)
-Vue.use(VueResourceMock, MockData)
 
 describe('BoxItem.vue', () => {
   it('should render correct contents', (done) => {
