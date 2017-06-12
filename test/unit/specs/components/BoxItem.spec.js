@@ -1,27 +1,21 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import BoxItem from '@/pages/BoxItem'
+import VueResourceMock from 'vue-resource-mock'
+import MockData from '../../mocks/resource'
+import BoxItem from '@/components/BoxItem'
 
 Vue.use(VueResource)
-
-if (process.env.NODE_ENV === 'testing') {
-  const VueResourceMock = require('vue-resource-mock')
-  const MockData = require('../../mocks/resource')
-  Vue.use(VueResourceMock, MockData)
-}
+Vue.use(VueResourceMock, MockData)
 
 describe('BoxItem.vue', () => {
-  it('should render correct contents', () => {
-    const Constructor = Vue.extend(BoxItem)
-    const component = new Constructor()
-    // component.$route = {params: {userId: 1, itemId: 1}}
-    component.$route = {params: {userId: 47776, itemId: 278878}}
-    const vm = component.$mount()
+  it('should render correct contents', (done) => {
+    const Ctor = Vue.extend(BoxItem)
+    const vm = new Ctor({ propsData: {userId: 1, itemId: 1} }).$mount()
 
     expect(vm.$el.querySelector('.box-item-loading')).to.be.ok // Loading first
-    // vm.$on('all-fetched', () => {
-    //   expect(vm.item.user).to.be.ok
-    //   done()
-    // })
+    vm.$on('all-fetched', () => {
+      expect(vm.item.user).to.be.ok
+      done()
+    })
   })
 })

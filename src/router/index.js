@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Welcome from '@/pages/Welcome'
-import BoxItem from '@/pages/BoxItem'
+import SingleBoxItem from '@/pages/SingleBoxItem'
 
 Vue.use(Router)
 
@@ -15,8 +15,8 @@ export default new Router({
     },
     {
       path: '/users/:userId/items/:itemId',
-      name: 'BoxItem',
-      component: BoxItem
+      name: 'SingleBoxItem',
+      component: SingleBoxItem
     }
   ]
 })

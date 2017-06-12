@@ -11,7 +11,7 @@ export const truncate = (str, maxLen = 100, append = '...') => {
   return String(str).split(' ').reduce((str, word) => {
     if (str.length + word.length >= maxLen) {
       if (str.slice(-append.length) !== append) {
-        str = str.replace(/[^a-zA-Z0-9]+$/, '') // trim special chars
+        str = str.replace(/[^a-zA-Z0-9"]+$/, '') // trim special chars
         str += append
       }
       return str

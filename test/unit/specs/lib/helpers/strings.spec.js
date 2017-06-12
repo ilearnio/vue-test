@@ -13,6 +13,7 @@ describe('Helpers Strings', function () {
     expect(truncate('short string', 100)).to.equal('short string')
     expect(truncate(str, 50)).to.equal('Lorem ipsum dolor sit amet, consectetur adipiscing...')
     expect(truncate(str, 27)).to.equal('Lorem ipsum dolor sit amet...') // truncates chars like comma
+    expect(truncate('Lorem ipsum" dolor', 12)).to.equal('Lorem ipsum"...') // should keep " char
     expect(truncate(str, 26, ' !!!')).to.equal('Lorem ipsum dolor sit !!!')
   })
 
